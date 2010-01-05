@@ -58,11 +58,14 @@ class Admin::ReportsController < Admin::BaseController
     end
   end
 
+  # Renders report in a specified format using default formatters.
+  #
+  # TODO: Make adding new formats easier (reflaction of model/ruport?)
   def render_report(format=nil)
     format ||= 'html'
     unless @report.valid?
       flash[:error] = t(:invalid_report)
-      redirect_to :action => :index
+      redirect_to :back
       return
     end
 
@@ -79,8 +82,11 @@ class Admin::ReportsController < Admin::BaseController
         :type => "text/csv",
         :filename => "#{@report.file_name}.csv"
       )
-    else
+    when 'html'
       @rendered_report = rendered_report
+      render :action => 'show', :layout => 'report_layout'
+    else
+      raise(RuntimeError, "Format: #{format}, is currently not supported", caller)
     end
   end
 
@@ -97,5 +103,4 @@ class Admin::ReportsController < Admin::BaseController
       render_to_string :partial => 'admin/reports/sub_menu'
     end
   end
-
 end

@@ -44,13 +44,15 @@ pl:
     Jeżeli chcesz zobaczyć pełny raport, bez zapisywania - wygeneruj raport jednorazowy w prawym panelu.
 
   report_saved: Zapisano raport
-  invalid_report: Raport jest nieprawidłowy
+  invalid_report: Raport jest nieprawidłowy. Musisz ustalić nazwę raportu, oraz prawidłowe daty.
   
   as: jako
   format: Format
   quantity: Sztuk
   monthly: Miesięczny
-  time_span: Przedział czasowy
+  timespan: Przedział czasowy
 
   variant:
     display_name: Opis towaru
+
+  wrong_timespan: Data końcowa raportu musi być późniejsza niż data początkowa

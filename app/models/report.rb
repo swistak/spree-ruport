@@ -40,6 +40,8 @@ class Report < ActiveRecord::Base
   REPORTABLE_STATES = ["paid", "shipped"]
   AVAILABLE_FORMATS = ['html', 'pdf', 'csv']
 
+  before_validation :set_default_title
+
   attr_accessor :format
   attr_accessor :limit
   validates_presence_of  :report_title
@@ -94,7 +96,7 @@ class Report < ActiveRecord::Base
       return(monthly_reports)
     end
   end
-  
+
   # Renders report in a choosen format.
   #
   # format can be passed as parameter, if it's left nil, default format from report is choosen.
@@ -137,4 +139,18 @@ class Report < ActiveRecord::Base
 
   alias to_s name
   alias to_param file_name
+
+  protected
+  def validate
+    if start_at >= end_at
+      errors.add(:end_at, t(:wrong_timespan))
+    end
+  end
+
+  def set_default_title
+    if self.report_title.blank?
+      self.report_title = self.class.human_name+
+        " #{self.start_at.strftime("%Y-%m-%d")} - #{self.end_at.strftime("%Y-%m-%d")}"
+    end
+  end
 end

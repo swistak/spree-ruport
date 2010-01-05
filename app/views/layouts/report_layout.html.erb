@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title><%= @report && @report.name %> - Spree</title>
+    <%= stylesheet_link_tag 'admin/admin-reset', 'admin/grids', 'admin/admin-typography', 'admin/admin-forms', 'admin/admin-tables', 'admin/admin', 'admin/jquery.jqplot.min.css', :cache => 'admin-all' %>
+    <%= yield :head %>
+  </head>
+  <body class='yui-skin-sam admin'>
+    <!--[if IE 7]>
+    <div id='IE7'>
+    <![endif]-->
+    <div id='wrapper'>
+      <div id="header">
+        <h1 class='logo'><%= link_to '', admin_path %></h1>
+      </div>
+
+      <div class="<%= 'with-sidebar ' unless @content_for_sidebar.blank? %> clear" id="content">
+        <%= yield %>
+      </div>
+    </div>
+    <!--[if IE]>
+    </div>
+    <![endif]-->
+  </body>
+</html>
+

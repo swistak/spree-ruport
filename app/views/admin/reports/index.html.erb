@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th><%= order @search, :by => :name,        :as => t("name") %></th>
-        <th><%= order @search, :by => :start_at,    :as => t("time_span") %></th>
+        <th><%= order @search, :by => :start_at,    :as => t("timespan") %></th>
         <th><%= order @search, :by => :report_type, :as => t(:type)  %></th>
         <th><%= t("comment", :scope => 'activerecord.attributes.report') %></th>
         <th><%= t("display") %></th>
