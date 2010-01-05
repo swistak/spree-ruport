@@ -1,0 +1,2 @@
+class DetailedOrdersReport < Report
+end

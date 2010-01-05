@@ -1,0 +1,27 @@
+<div id="preview_warning"><%= t(:preview_warning) %></div>
+<div id="report">
+  <%= @report_preview %>
+</div>
+
+<% content_for :sidebar do %>
+  <div id="adhoc_report">
+    <h3><%= t(:adhoc_report) %></h3>
+    <div>
+      <%= t(:generate_without_saving) %>
+      <br />
+      <%= links_to_report(@report) %>
+    </div>
+  </div>
+
+  <div id="new_report">
+    <h3><%= t(:edit_report) %></h3>
+    <% form_for :report, @report, :url => {:action => :new} do |f| %>
+      <%= render :partial => 'form', :locals => {:f => f} %>
+      <%= f.submit t(:preview_report), :name => 'update' %>
+      <%= f.submit t(:save_report), :name => 'save' %>
+    <% end %>
+    <br style="clear: both" />
+  </div>
+
+  <br style="clear: both" />
+<% end %>

@@ -1,0 +1,56 @@
+---
+pl:
+  activerecord:
+    attributes:
+      report:
+        report_type: Typ raportu
+        comment: Komentarz
+        report_title: Nazwa raportu
+        sort_order: Kolejność sortowania
+        limit: Ograniczenie ilości rekordów
+        start_at: Od
+        end_at: Do
+    models:
+      report:
+        one: Raport
+        other: Raporty
+      total_sales_report:
+        one: Raport całościowy sprzedaży
+      detailed_orders_report:
+        one: Szczegółowy raport zamówień
+      product_sales_report:
+        one: Raport sprzedaży produktów
+  report:
+    summary: Podsumowanie
+    generated_on: Utworzono
+    total: Łącznie kwota sprzedaży
+    comment: Komentarz
+    start_at: Od
+    end_at: Do
+  
+  new_report: Stwórz nowy raport
+  edit_report: Zmień kryteria raportu
+  update_report: Wygeneruj raport ponownie
+  preview_report: Generuj raport
+  save_report: Zapisz raport
+  adhoc_report: Raport jednorazowy
+  saved_reports: Zapisane raporty
+  monthly_reports: Raporty miesięczne
+  available_reports: Dostępne raporty
+
+  generate_without_saving: Możesz wygenerować raport z obecnymi ustawieniami bez jego zapisywania.
+  preview_warning: <strong>UWAGA!</strong> To jest tylko <em>podgląd</em>, który ze względów
+    wydajnościowych został ograniczony do 25 elementów.<br />
+    Jeżeli chcesz zobaczyć pełny raport, bez zapisywania - wygeneruj raport jednorazowy w prawym panelu.
+
+  report_saved: Zapisano raport
+  invalid_report: Raport jest nieprawidłowy
+  
+  as: jako
+  format: Format
+  quantity: Sztuk
+  monthly: Miesięczny
+  time_span: Przedział czasowy
+
+  variant:
+    display_name: Opis towaru

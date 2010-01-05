@@ -1,0 +1,38 @@
+<% if @report.new_record? %>
+  <fieldset id="report_types">
+    <legend><%= t(:available_reports) %></legend>
+    <%= f.select :report_type, Report::AVAILABLE_REPORTS.map {|r| [r.human_name,r.name]} %>
+  </fieldset>
+<% else %>
+  <%= f.hidden_field :report_type %>
+<% end %>
+<fieldset>
+  <legend><%= t(:options) %></legend>
+  <p>
+    <%= f.label(:report_title, t(:report_title, :scope => 'activerecord.attributes.report'), :class => 'block') %>
+    <%= f.text_field(:report_title) %>
+  </p>
+  <p>
+    <%= f.label :start_at, t("start_at", :scope => 'activerecord.attributes.report'), :class => 'block' %>
+    <%= f.unobtrusive_date_picker :start_at, :value => @report.start_at && @report.start_at.to_date.to_s %>
+  </p>
+  <p>
+    <%= f.label :end_at, t("end_at", :scope => 'activerecord.attributes.report'), :class => 'block' %>
+    <%= f.unobtrusive_date_picker :end_at, :value => @report.end_at && @report.end_at.to_date.to_s %>
+  </p>
+  <p>
+    <%= f.label :comment, t(:comment, :scope => 'activerecord.attributes.report'), :class => 'block' %>
+    <%= f.text_field(:comment) %>
+  </p>
+  <div id="report_options">
+    <%= preference_fields(@report, f) %>
+  </div>
+</fieldset>
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    $('fieldset#report_types select').change(function() {
+      $('div#report_options').html('<strong><%=t(:loading) %></strong>').load("<%= options_admin_reports_url %>",{report_type: this.value } );
+    });
+  });
+</script>

@@ -1,0 +1,24 @@
+<h1><%= t(:monthly_reports) %></h1>
+
+<div id="reports">
+  <table class="index">
+    <thead>
+      <tr>
+        <th><%= t("time_span") %></th>
+        <% Report::AVAILABLE_REPORTS.each do |report_type| %>
+          <th><%= report_type.human_name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% @monthly_reports.each do |monthly_report| %>
+        <tr>
+          <td><%= monthly_report[:start_at] %> - <%= monthly_report[:end_at] %></td>
+          <% monthly_report[:reports].each do |report| %>
+            <td> <%= links_to_report(report) %> </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

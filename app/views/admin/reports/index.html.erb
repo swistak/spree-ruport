@@ -1,0 +1,44 @@
+<h1><%= t("listing_reports") %></h1>
+
+<div id="reports">
+  <table class="index">
+    <thead>
+      <tr>
+        <th><%= order @search, :by => :name,        :as => t("name") %></th>
+        <th><%= order @search, :by => :start_at,    :as => t("time_span") %></th>
+        <th><%= order @search, :by => :report_type, :as => t(:type)  %></th>
+        <th><%= t("comment", :scope => 'activerecord.attributes.report') %></th>
+        <th><%= t("display") %></th>
+        <th><%= t(:action) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr id="<%= dom_id(report) %>">
+          <td><%= report.name %></td>
+          <td><%= report[:start_at].to_date %> - <%= report[:end_at].to_date %></td>
+          <td><%= report.class.human_name %></td>
+          <td><%= report.comment %></td>
+          <td>
+            <%= links_to_report(report) %>
+          </td>
+          <td>
+            <%=  link_to_with_icon('edit', t("edit"), edit_admin_report_path(report.permalink))  %>
+            &nbsp;
+            <%= link_to_delete(report, {:url => admin_report_path(report.permalink) }) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+</div>
+
+<% content_for :sidebar do %>
+  <h3><%= t(:new_report) %></h3>
+
+  <% form_for :report, @report, :url => {:action => :new}, :html => {:method => 'get'} do |f| %>
+    <%= render :partial => 'form', :locals => {:f => f} %>
+    <%= f.submit t(:new_report) %>
+  <% end %>
+<% end %>

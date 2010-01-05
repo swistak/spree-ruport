@@ -1,0 +1,41 @@
+---
+en-US:
+  report:
+    summary: Summary
+    total: Total
+  generated_at: Generated At
+  SalesReport: Sales Report
+  DetailedSalesReport: Detailed Sales Report
+  ProductSalesReport: Product Sales Report
+  TotalSalesReport: Total Sales Report
+  as: as
+  format: Format
+  available_formats: Available Formats
+  available_reports: Available Reports
+  comment: Comment
+  start_date: From
+  end_date: To
+  report_title: Report Title
+  no_data: No Data
+  new_report: New Report
+  edit_report: Edit Report
+  update_report: Update Report
+  preview_report: Preview Report
+  save_report: Save Report
+  sort_by: Sort By
+  variant SKU: Variant SKU
+  order number: Order Number
+  quantity: Quantity
+  adhoc: Adhoc
+  saved_reports: Saved Reports
+  ship_total: Shipping Total
+  monthly_reports: Monthly Reports
+  Date: Date
+  interest_percent: % Interest
+  interest: Interest
+  interest_brutto: Prowizja brutto
+  invalid_report: Invalid Report
+  total_brutto: Łącznie kwota sprzedaży brutto
+  monthly: Montly
+  variant:
+    display_name: Variant

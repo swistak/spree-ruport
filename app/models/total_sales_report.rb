@@ -1,0 +1,2 @@
+class TotalSalesReport < Report
+end
