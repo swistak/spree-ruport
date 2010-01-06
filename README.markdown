@@ -116,15 +116,19 @@ there are few things you need to consider.
 Since ruport extension might not be available you need to add guards to your models and controllers
 for model
 
-  <code>if defined?(Report)
+<code><pre>
+  if defined?(Report)
     # your model code here
-  end</code>
+  end
+</pre></code>
 
 for controller
 
-  <code>if defined?(BaseRuportController)
+<code><pre>
+  if defined?(BaseRuportController)
     # Controller code here
-  end</code>
+  end
+</pre></code>
 
 In your extension #activate method you also need to activate report by adding it to
 Report::AVAILABLE_REPORTS set.
@@ -135,8 +139,8 @@ Then you have to decide if you want to use default formaters or custom ones.
 If you choose custome ones you have to provide them for pdf, html, and csv.
 If you choose default ones, you have to select them for rendering your report with:
 
-  <code>
+  <pre><code>
   Formatter::Pdf.renders  :pdf,  :for => MyCustomReport
   Formatter::Html.renders :html, :for => MyCustomReport
   Formatter::Csv.renders  :csv,  :for => MyCustomReport
-  </code>
+  </code></pre>
