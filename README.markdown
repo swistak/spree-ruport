@@ -117,17 +117,17 @@ Since ruport extension might not be available you need to add guards to your mod
 for model
 
 <code><pre>
-  if defined?(Report)
-    # your model code here
-  end
+if defined?(Report)
+  your model code here
+end
 </pre></code>
 
 for controller
 
 <code><pre>
-  if defined?(BaseRuportController)
-    # Controller code here
-  end
+if defined?(BaseRuportController)
+  Controller code here
+end
 </pre></code>
 
 In your extension #activate method you also need to activate report by adding it to
